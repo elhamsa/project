@@ -1,0 +1,127 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <link rel="stylesheet" href="modal.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <button id="my-p" class="btn-x" data-id="1">
+        <span class="logo"><i class="fa fa-trash"></i></span>
+        Register Form
+      </button>
+      <div id="myModal1" class="modal">
+        <button class="close" data-id="1">&times;</button>
+        
+          <form  class="modal-content animate__animated animate__fadeInTopLeft">
+            <div class="container">
+              <h1>Register</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+              <hr>
+          
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+          
+            <div class="container signin">
+              <p>Already have an account? <a href="#">Sign in</a>.</p>
+            </div>
+          </form>
+       
+      </div>
+
+
+      <button id="my-p" class="btn-x" data-id="2">
+        <span class="logo"><i class="fa fa-envelope"></i></span>
+        Message
+      </button>
+      <div id="myModal2" class="modal">
+        <button class="close" data-id="2">&times;</button>
+        <h1 class="modal-content animate__animated animate__fadeInTopLeft" >Message In Account
+          <input type="text" value="Hello World" id="myInput">
+        </h1>
+      </div>
+
+      <button id="my-p"  class="btn-x" data-id="3">
+        <span class="logo"><i class="fa fa-search"></i></span>
+        Search
+      </button>
+      <div id="myModal3" class="modal">
+        <button class="close" data-id="3">&times;</button>
+        <h1 class="modal-content animate__animated animate__fadeInTopLeft" >Search In Account
+          <form >
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit" class="submite"><i class="fa fa-search"></i></button>
+          </form>
+        </h1>
+      </div>
+      <!-- <button id="my-p">
+        rtl or ltr
+      </button> -->
+
+    </div>
+  </div>
+  
+
+  <script>
+  let modals = document.getElementsByClassName("btn-x");
+  let span = document.getElementsByClassName("close");
+
+  for (let i = 0; i < modals.length; i++) {
+      modals[i].addEventListener('click', function () {
+        let id = event.target.getAttribute('data-id');
+        console.log(id);
+       let modal5=document.getElementById("myModal"+id);
+        console.log(modal5);
+        modal5.style.display="block";
+      })
+    }
+   
+   for (let b = 0; b < span.length; b++) {
+      span[b].addEventListener('click', function () {
+        let id = event.target.getAttribute('data-id');
+        console.log(id);
+       let modal5=document.getElementById("myModal"+id);
+        console.log(modal5);
+        modal5.style.display="none";
+   
+      })
+    }
+
+/*jequary
+    let modals=$(".btn-x");
+$(modals).click(function(){
+  let id=$(this).attr('data-id');
+  $("#myModal"+id).css('display','block');
+})
+let span=$(".close");
+
+$(span).click(function(){
+  let id=$(this).attr('data-id');
+  $("#myModal"+id).css('display','none');
+})
+*/
+  </script>
+</body>
+
+</html>
